@@ -9,13 +9,25 @@
 /* Begin PBXBuildFile section */
 		EBCFC10D24E648F300069174 /* SimpleMessageDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCFC10B24E648F300069174 /* SimpleMessageDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EBCFC11624E6499C00069174 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EBCFC11524E6499C00069174 /* .gitignore */; };
+		EBCFC11824E6571200069174 /* SimpleMessageDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFC11724E6571200069174 /* SimpleMessageDialog.swift */; };
+		EBCFC11A24E6574900069174 /* SimpleMessageDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFC11924E6574900069174 /* SimpleMessageDialogController.swift */; };
+		EBCFC11C24E6579700069174 /* SimpleMessageDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFC11B24E6579700069174 /* SimpleMessageDialogView.swift */; };
+		EBCFC12C24E65CC900069174 /* Pods_SimpleMessageDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFC12324E65C5400069174 /* Pods_SimpleMessageDialog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15D910887BDC6F68992C63AA /* Pods-SimpleMessageDialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessageDialog.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMessageDialog/Pods-SimpleMessageDialog.debug.xcconfig"; sourceTree = "<group>"; };
+		28B8E2E79FE8A905F4D93185 /* Pods_SimpleMessageDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMessageDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AF19DF49E86AE89EFA04DD /* Pods-SimpleMessageDialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessageDialog.release.xcconfig"; path = "Target Support Files/Pods-SimpleMessageDialog/Pods-SimpleMessageDialog.release.xcconfig"; sourceTree = "<group>"; };
 		EBCFC10824E648F300069174 /* SimpleMessageDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleMessageDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFC10B24E648F300069174 /* SimpleMessageDialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleMessageDialog.h; sourceTree = "<group>"; };
 		EBCFC10C24E648F300069174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBCFC11524E6499C00069174 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EBCFC11724E6571200069174 /* SimpleMessageDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessageDialog.swift; sourceTree = "<group>"; };
+		EBCFC11924E6574900069174 /* SimpleMessageDialogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessageDialogController.swift; sourceTree = "<group>"; };
+		EBCFC11B24E6579700069174 /* SimpleMessageDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessageDialogView.swift; sourceTree = "<group>"; };
+		EBCFC12124E6590200069174 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EBCFC12324E65C5400069174 /* Pods_SimpleMessageDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SimpleMessageDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -23,18 +35,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCFC12C24E65CC900069174 /* Pods_SimpleMessageDialog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17D838CF3629AF7BACBD5CA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15D910887BDC6F68992C63AA /* Pods-SimpleMessageDialog.debug.xcconfig */,
+				71AF19DF49E86AE89EFA04DD /* Pods-SimpleMessageDialog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A187916B91C2C2E40CF7D0ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBCFC12324E65C5400069174 /* Pods_SimpleMessageDialog.framework */,
+				EBCFC12124E6590200069174 /* UIKit.framework */,
+				28B8E2E79FE8A905F4D93185 /* Pods_SimpleMessageDialog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EBCFC0FE24E648F300069174 = {
 			isa = PBXGroup;
 			children = (
 				EBCFC11524E6499C00069174 /* .gitignore */,
 				EBCFC10A24E648F300069174 /* SimpleMessageDialog */,
 				EBCFC10924E648F300069174 /* Products */,
+				17D838CF3629AF7BACBD5CA7 /* Pods */,
+				A187916B91C2C2E40CF7D0ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +85,9 @@
 			children = (
 				EBCFC10B24E648F300069174 /* SimpleMessageDialog.h */,
 				EBCFC10C24E648F300069174 /* Info.plist */,
+				EBCFC11724E6571200069174 /* SimpleMessageDialog.swift */,
+				EBCFC11924E6574900069174 /* SimpleMessageDialogController.swift */,
+				EBCFC11B24E6579700069174 /* SimpleMessageDialogView.swift */,
 			);
 			path = SimpleMessageDialog;
 			sourceTree = "<group>";
@@ -73,6 +110,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBCFC11024E648F300069174 /* Build configuration list for PBXNativeTarget "SimpleMessageDialog" */;
 			buildPhases = (
+				BBA442DCF097D02A74B1D776 /* [CP] Check Pods Manifest.lock */,
 				EBCFC10324E648F300069174 /* Headers */,
 				EBCFC10424E648F300069174 /* Sources */,
 				EBCFC10524E648F300069174 /* Frameworks */,
@@ -98,6 +136,7 @@
 				TargetAttributes = {
 					EBCFC10724E648F300069174 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -130,11 +169,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BBA442DCF097D02A74B1D776 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleMessageDialog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EBCFC10424E648F300069174 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCFC11824E6571200069174 /* SimpleMessageDialog.swift in Sources */,
+				EBCFC11A24E6574900069174 /* SimpleMessageDialogController.swift in Sources */,
+				EBCFC11C24E6579700069174 /* SimpleMessageDialogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +330,9 @@
 		};
 		EBCFC11124E648F300069174 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15D910887BDC6F68992C63AA /* Pods-SimpleMessageDialog.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -277,11 +346,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lee827.SimpleMessageDialog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,7 +359,9 @@
 		};
 		EBCFC11224E648F300069174 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71AF19DF49E86AE89EFA04DD /* Pods-SimpleMessageDialog.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -303,7 +375,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lee827.SimpleMessageDialog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
