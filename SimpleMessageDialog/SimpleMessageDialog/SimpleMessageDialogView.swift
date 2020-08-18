@@ -12,39 +12,38 @@ class SimpleMessageDialogView: UIView {
   struct Constants {
     static let TOP_BOTTOM_INSET: CGFloat = 16;
     static let LEFT_RIGHT_INSET: CGFloat = 24;
-//    static let BUTTON_WIDTH: CGFloat = (GlobalConstants.SCREEN_WIDTH-LEFT_RIGHT_INSET*2);
     static let BUTTON_WIDTH: CGFloat = (UIScreen.main.bounds.width-LEFT_RIGHT_INSET*2);
     static let BUTTON_HEIGHT: CGFloat = 56;
   }
-  
+
   let blurEffectView: UIView = {
     let this = UIView()
-    this.backgroundColor = UIColor.black.withAlphaComponent(0.0);
-    return this
-  }()
-//
-  let dialogView: UIView = {
-    let this = UIView()
-//    $0.backgroundColor = ColorPalette.alertBackground.value;
-    this.layer.cornerRadius = 2.0;
-    this.layer.masksToBounds = true;
-    this.clipsToBounds = false;
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.blurEffectColor;
     return this
   }()
 
-  let titleLabel: UILabel = {
+  let dialogView: UIView = SimpleMessageDialog.appearance.basic.dialogView ?? {
+    let this = UIView()
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.dialogViewColor;
+    this.layer.cornerRadius = SimpleMessageDialog.appearance.basic.dialogViewCornerRadius;
+    this.layer.masksToBounds = true;
+    this.clipsToBounds = true;
+    return this
+  }()
+    
+  let titleLabel: UILabel = SimpleMessageDialog.appearance.basic.titleLabel ?? {
     let this = UILabel()
-    this.font = UIFont.systemFont(ofSize: 16, weight: .semibold);
-//    $0.textColor = ColorPalette.alertText.value;
+    this.font = SimpleMessageDialog.appearance.basic.titleLabelFont;
+    this.textColor = SimpleMessageDialog.appearance.basic.titleLabelColor;
     this.textAlignment = .center;
     this.numberOfLines = 3;
     return this
   }()
 
-  let messageLabel: UILabel = {
+  let messageLabel: UILabel = SimpleMessageDialog.appearance.basic.messageLabel ?? {
     let this = UILabel()
-    this.font = UIFont.systemFont(ofSize: 13, weight: .medium);
-//    $0.textColor = ColorPalette.alertText.withAlpha(0.5);
+    this.font = SimpleMessageDialog.appearance.basic.messageLabelFont;
+    this.textColor = SimpleMessageDialog.appearance.basic.messageLabelColor;
     this.textAlignment = .center;
     this.numberOfLines = 8;
     return this
@@ -52,33 +51,29 @@ class SimpleMessageDialogView: UIView {
   
   let separateHLine: UIView = {
     let this = UIView()
-//    $0.backgroundColor = ColorPalette.alertSeparateLine.withAlpha(0.1);
-    this.backgroundColor = .gray;
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.separateHLineColor;
     return this
   }()
 
   let separateVLine: UIView = {
     let this = UIView()
-//    $0.backgroundColor = ColorPalette.alertSeparateLine.withAlpha(0.1);
-    this.backgroundColor = .gray;
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.separateVLineColor;
     return this
   }()
 
-  let cancelButton: UIButton = {
+  let cancelButton: UIButton = SimpleMessageDialog.appearance.basic.cancelButton ?? {
     let this = UIButton()
-    this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
-//    $0.backgroundColor = ColorPalette.alertButton.value;
-//    $0.setTitleColor(ColorPalette.alertText.withAlpha(0.5), for: .normal);
-    this.tag = AlertButtonType.cancel.rawValue;
+    this.titleLabel?.font = SimpleMessageDialog.appearance.basic.cancelButtonFont;
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.cancelButtonColor ?? SimpleMessageDialog.appearance.basic.dialogViewColor;
+    this.setTitleColor(SimpleMessageDialog.appearance.basic.cancelButtonTitleColor, for: .normal);
     return this
   }()
   
-  let confirmButton: UIButton = {
+  let confirmButton: UIButton = SimpleMessageDialog.appearance.basic.confirmButton ?? {
     let this = UIButton()
-    this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
-//    $0.backgroundColor = ColorPalette.alertButton.value;
-//    $0.setTitleColor(ColorPalette.alertText.value, for: .normal);
-    this.tag = AlertButtonType.confirm.rawValue;
+    this.titleLabel?.font = SimpleMessageDialog.appearance.basic.confirmButtonFont;
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.confirmButtonColor ?? SimpleMessageDialog.appearance.basic.dialogViewColor;
+    this.setTitleColor(SimpleMessageDialog.appearance.basic.confirmButtonTitleColor, for: .normal);
     return this
   }()
 
@@ -88,16 +83,13 @@ class SimpleMessageDialogView: UIView {
   }
 
   func setupView() {
+    cancelButton.tag = AlertButtonType.cancel.rawValue;
+    confirmButton.tag = AlertButtonType.confirm.rawValue;
     setupViewConfiguration();
   }
 
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-
-  override func layoutSubviews() {
-    cancelButton.titleLabel?.addCharacterSpacing(kernValue: 1.5);
-    confirmButton.titleLabel?.addCharacterSpacing(kernValue: 1.5);
   }
 }
 
@@ -162,16 +154,6 @@ extension SimpleMessageDialogView: ViewConfiguration {
       make.centerX.equalTo(separateHLine);
       make.top.bottom.equalTo(cancelButton);
       make.width.equalTo(1);
-    }
-  }
-}
-
-extension UILabel {
-  func addCharacterSpacing(kernValue: Double = 1.15) {
-    if let labelText = text, labelText.count > 0 {
-      let attributedString = NSMutableAttributedString(string: labelText);
-      attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1));
-      attributedText = attributedString;
     }
   }
 }

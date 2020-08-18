@@ -8,11 +8,11 @@
 
 import UIKit
 
-enum AlertButtonType: Int, CaseIterable {
+public enum AlertButtonType: Int, CaseIterable {
   case cancel = 0, confirm;
 }
 
-class SimpleMessageDialogController: UIViewController {
+public class SimpleMessageDialogController: UIViewController {
   lazy var mainView: SimpleMessageDialogView = {
     let v = SimpleMessageDialogView(frame: self.view.frame);
 
@@ -29,21 +29,21 @@ class SimpleMessageDialogController: UIViewController {
 
   var buttonAction: ((_ buttonType: AlertButtonType) -> Void)?;
 
-  override func loadView() {
+  public override func loadView() {
     super.loadView();
     self.view = self.mainView;
   }
 
-  override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
-//    self.mainView.dialogView.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
-//    self.mainView.dialogView.layer.opacity = 0;
+    self.mainView.blurEffectView.layer.opacity = 0;
+    self.mainView.dialogView.layer.opacity = 0;
 
     mainView.titleLabel.text = _title;
     mainView.messageLabel.text = _message;
-    mainView.cancelButton.setTitle(_cancelTitle?.uppercased(), for: .normal);
-    mainView.confirmButton.setTitle(_confirmTitle?.uppercased(), for: .normal);
-
+    mainView.cancelButton.setTitle(_cancelTitle, for: .normal);
+    mainView.confirmButton.setTitle(_confirmTitle, for: .normal);
+    
     if (_title == nil || _title == "" || _message == nil || _message == "") {
       mainView.messageLabel.snp.updateConstraints { (make) in
         make.top.equalTo(mainView.titleLabel.snp.bottom).inset(0);
@@ -65,38 +65,28 @@ class SimpleMessageDialogController: UIViewController {
     }
   }
 
-  override func viewDidAppear(_ animated: Bool) {
+  public override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated);
-//    UIView.animate(
-//      withDuration: 0.2,
-//      delay: 0,
-//      options: .curveEaseInOut,
-//      animations: {
-//        self.mainView.blurEffectView.backgroundColor = UIColor.black.withAlphaComponent(0.5);
-//        self.mainView.dialogView.layer.opacity = 1;
-//        self.mainView.dialogView.layer.transform = CATransform3DMakeScale(1, 1, 1);
-//    })
+    UIView.animate(
+      withDuration: 0.1,
+      delay: 0,
+      options: .curveEaseInOut,
+      animations: {
+        self.mainView.blurEffectView.layer.opacity = 1;
+        self.mainView.dialogView.layer.opacity = 1;
+    })
   }
 
   // MARK: Button Handle
 
   @objc func buttonDidTapped(sender: UIButton) {
-//    UIView.animate(
-//      withDuration: 0.2,
-//      delay: 0,
-//      options: .curveEaseInOut,
-//      animations: {
-//        self.mainView.blurEffectView.backgroundColor = UIColor.black.withAlphaComponent(0);
-//        self.mainView.dialogView.layer.opacity = 0;
-//
-//    }) { (_) in
-      self.dismiss(animated: true);
-      guard let type = AlertButtonType(rawValue: sender.tag) else { return; }
-      self.buttonAction?(type);
-//    }
+    self.mainView.blurEffectView.layer.opacity = 0;
+    self.dismiss(animated: true);
+    guard let type = AlertButtonType(rawValue: sender.tag) else { return; }
+    self.buttonAction?(type);
   }
 
-  override func didReceiveMemoryWarning() {
+  public override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
 }

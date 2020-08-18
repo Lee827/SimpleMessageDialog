@@ -3,22 +3,69 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F44F29C3DC5E8BDBB507106 /* Pods_SimpleMessageDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B8E2E79FE8A905F4D93185 /* Pods_SimpleMessageDialog.framework */; };
+		58D8CDE6D0BF947A90726F1F /* Pods_SimpleMessageDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBBEC3724EA5479003A5EA7 /* Pods_SimpleMessageDialog.framework */; };
+		65B9BC6C3BAB5AA3740C8D3C /* Pods_ExampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9213469A85FC2024C58A2E1C /* Pods_ExampleApp.framework */; };
+		EBBBEC2024EA41EF003A5EA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBEC1F24EA41EF003A5EA7 /* AppDelegate.swift */; };
+		EBBBEC2224EA41EF003A5EA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBEC2124EA41EF003A5EA7 /* SceneDelegate.swift */; };
+		EBBBEC2424EA41EF003A5EA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBEC2324EA41EF003A5EA7 /* ViewController.swift */; };
+		EBBBEC2724EA41EF003A5EA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBBBEC2524EA41EF003A5EA7 /* Main.storyboard */; };
+		EBBBEC2924EA41F0003A5EA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBBBEC2824EA41F0003A5EA7 /* Assets.xcassets */; };
+		EBBBEC2C24EA41F0003A5EA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBBBEC2A24EA41F0003A5EA7 /* LaunchScreen.storyboard */; };
+		EBBBEC4D24EA7512003A5EA7 /* SimpleMessageDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFC10824E648F300069174 /* SimpleMessageDialog.framework */; };
+		EBBBEC4E24EA7512003A5EA7 /* SimpleMessageDialog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFC10824E648F300069174 /* SimpleMessageDialog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBCFC10D24E648F300069174 /* SimpleMessageDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = EBCFC10B24E648F300069174 /* SimpleMessageDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EBCFC11624E6499C00069174 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EBCFC11524E6499C00069174 /* .gitignore */; };
 		EBCFC11824E6571200069174 /* SimpleMessageDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFC11724E6571200069174 /* SimpleMessageDialog.swift */; };
 		EBCFC11A24E6574900069174 /* SimpleMessageDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFC11924E6574900069174 /* SimpleMessageDialogController.swift */; };
 		EBCFC11C24E6579700069174 /* SimpleMessageDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFC11B24E6579700069174 /* SimpleMessageDialogView.swift */; };
-		EBCFC12C24E65CC900069174 /* Pods_SimpleMessageDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFC12324E65C5400069174 /* Pods_SimpleMessageDialog.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EBBBEC4F24EA7512003A5EA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCFC0FF24E648F300069174 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBCFC10724E648F300069174;
+			remoteInfo = SimpleMessageDialog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EBBBEC5124EA7512003A5EA7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EBBBEC4E24EA7512003A5EA7 /* SimpleMessageDialog.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		054D6D3C5A07C16B56AD1C4D /* Pods-ExampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp.debug.xcconfig"; path = "Target Support Files/Pods-ExampleApp/Pods-ExampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		15D910887BDC6F68992C63AA /* Pods-SimpleMessageDialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessageDialog.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMessageDialog/Pods-SimpleMessageDialog.debug.xcconfig"; sourceTree = "<group>"; };
 		28B8E2E79FE8A905F4D93185 /* Pods_SimpleMessageDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMessageDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AFAC79E3ECC3D0D279428D3 /* Pods-ExampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleApp.release.xcconfig"; path = "Target Support Files/Pods-ExampleApp/Pods-ExampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		71AF19DF49E86AE89EFA04DD /* Pods-SimpleMessageDialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessageDialog.release.xcconfig"; path = "Target Support Files/Pods-SimpleMessageDialog/Pods-SimpleMessageDialog.release.xcconfig"; sourceTree = "<group>"; };
+		9213469A85FC2024C58A2E1C /* Pods_ExampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBBBEC1D24EA41EF003A5EA7 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBBBEC1F24EA41EF003A5EA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EBBBEC2124EA41EF003A5EA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EBBBEC2324EA41EF003A5EA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EBBBEC2624EA41EF003A5EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EBBBEC2824EA41F0003A5EA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBBBEC2B24EA41F0003A5EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EBBBEC2D24EA41F0003A5EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBBBEC3724EA5479003A5EA7 /* Pods_SimpleMessageDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SimpleMessageDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBBBEC4524EA5855003A5EA7 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFC10824E648F300069174 /* SimpleMessageDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleMessageDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFC10B24E648F300069174 /* SimpleMessageDialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleMessageDialog.h; sourceTree = "<group>"; };
 		EBCFC10C24E648F300069174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,15 +74,24 @@
 		EBCFC11924E6574900069174 /* SimpleMessageDialogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessageDialogController.swift; sourceTree = "<group>"; };
 		EBCFC11B24E6579700069174 /* SimpleMessageDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessageDialogView.swift; sourceTree = "<group>"; };
 		EBCFC12124E6590200069174 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		EBCFC12324E65C5400069174 /* Pods_SimpleMessageDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SimpleMessageDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EBBBEC1A24EA41EF003A5EA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBBBEC4D24EA7512003A5EA7 /* SimpleMessageDialog.framework in Frameworks */,
+				65B9BC6C3BAB5AA3740C8D3C /* Pods_ExampleApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBCFC10524E648F300069174 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBCFC12C24E65CC900069174 /* Pods_SimpleMessageDialog.framework in Frameworks */,
+				2F44F29C3DC5E8BDBB507106 /* Pods_SimpleMessageDialog.framework in Frameworks */,
+				58D8CDE6D0BF947A90726F1F /* Pods_SimpleMessageDialog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +103,8 @@
 			children = (
 				15D910887BDC6F68992C63AA /* Pods-SimpleMessageDialog.debug.xcconfig */,
 				71AF19DF49E86AE89EFA04DD /* Pods-SimpleMessageDialog.release.xcconfig */,
+				054D6D3C5A07C16B56AD1C4D /* Pods-ExampleApp.debug.xcconfig */,
+				6AFAC79E3ECC3D0D279428D3 /* Pods-ExampleApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -54,11 +112,27 @@
 		A187916B91C2C2E40CF7D0ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EBCFC12324E65C5400069174 /* Pods_SimpleMessageDialog.framework */,
+				EBBBEC4524EA5855003A5EA7 /* SnapKit.framework */,
+				EBBBEC3724EA5479003A5EA7 /* Pods_SimpleMessageDialog.framework */,
 				EBCFC12124E6590200069174 /* UIKit.framework */,
 				28B8E2E79FE8A905F4D93185 /* Pods_SimpleMessageDialog.framework */,
+				9213469A85FC2024C58A2E1C /* Pods_ExampleApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBBBEC1E24EA41EF003A5EA7 /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				EBBBEC1F24EA41EF003A5EA7 /* AppDelegate.swift */,
+				EBBBEC2124EA41EF003A5EA7 /* SceneDelegate.swift */,
+				EBBBEC2324EA41EF003A5EA7 /* ViewController.swift */,
+				EBBBEC2524EA41EF003A5EA7 /* Main.storyboard */,
+				EBBBEC2824EA41F0003A5EA7 /* Assets.xcassets */,
+				EBBBEC2A24EA41F0003A5EA7 /* LaunchScreen.storyboard */,
+				EBBBEC2D24EA41F0003A5EA7 /* Info.plist */,
+			);
+			path = ExampleApp;
 			sourceTree = "<group>";
 		};
 		EBCFC0FE24E648F300069174 = {
@@ -66,6 +140,7 @@
 			children = (
 				EBCFC11524E6499C00069174 /* .gitignore */,
 				EBCFC10A24E648F300069174 /* SimpleMessageDialog */,
+				EBBBEC1E24EA41EF003A5EA7 /* ExampleApp */,
 				EBCFC10924E648F300069174 /* Products */,
 				17D838CF3629AF7BACBD5CA7 /* Pods */,
 				A187916B91C2C2E40CF7D0ED /* Frameworks */,
@@ -76,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				EBCFC10824E648F300069174 /* SimpleMessageDialog.framework */,
+				EBBBEC1D24EA41EF003A5EA7 /* ExampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +182,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		EBBBEC1C24EA41EF003A5EA7 /* ExampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBBBEC3024EA41F0003A5EA7 /* Build configuration list for PBXNativeTarget "ExampleApp" */;
+			buildPhases = (
+				DB454393223BEB8F558B0D48 /* [CP] Check Pods Manifest.lock */,
+				EBBBEC1924EA41EF003A5EA7 /* Sources */,
+				EBBBEC1A24EA41EF003A5EA7 /* Frameworks */,
+				EBBBEC1B24EA41EF003A5EA7 /* Resources */,
+				C358A0C29EF25E3E4D0C2890 /* [CP] Embed Pods Frameworks */,
+				EBBBEC5124EA7512003A5EA7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBBBEC5024EA7512003A5EA7 /* PBXTargetDependency */,
+			);
+			name = ExampleApp;
+			productName = ExampleApp;
+			productReference = EBBBEC1D24EA41EF003A5EA7 /* ExampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		EBCFC10724E648F300069174 /* SimpleMessageDialog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBCFC11024E648F300069174 /* Build configuration list for PBXNativeTarget "SimpleMessageDialog" */;
@@ -131,9 +228,13 @@
 		EBCFC0FF24E648F300069174 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = ElmoLee;
 				TargetAttributes = {
+					EBBBEC1C24EA41EF003A5EA7 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
 					EBCFC10724E648F300069174 = {
 						CreatedOnToolsVersion = 11.2.1;
 						LastSwiftMigration = 1120;
@@ -154,11 +255,22 @@
 			projectRoot = "";
 			targets = (
 				EBCFC10724E648F300069174 /* SimpleMessageDialog */,
+				EBBBEC1C24EA41EF003A5EA7 /* ExampleApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EBBBEC1B24EA41EF003A5EA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBBBEC2C24EA41F0003A5EA7 /* LaunchScreen.storyboard in Resources */,
+				EBBBEC2924EA41F0003A5EA7 /* Assets.xcassets in Resources */,
+				EBBBEC2724EA41EF003A5EA7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBCFC10624E648F300069174 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,9 +304,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C358A0C29EF25E3E4D0C2890 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleApp/Pods-ExampleApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleApp/Pods-ExampleApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleApp/Pods-ExampleApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB454393223BEB8F558B0D48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExampleApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EBBBEC1924EA41EF003A5EA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBBBEC2424EA41EF003A5EA7 /* ViewController.swift in Sources */,
+				EBBBEC2024EA41EF003A5EA7 /* AppDelegate.swift in Sources */,
+				EBBBEC2224EA41EF003A5EA7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBCFC10424E648F300069174 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,7 +368,74 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EBBBEC5024EA7512003A5EA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBCFC10724E648F300069174 /* SimpleMessageDialog */;
+			targetProxy = EBBBEC4F24EA7512003A5EA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EBBBEC2524EA41EF003A5EA7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBBBEC2624EA41EF003A5EA7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EBBBEC2A24EA41F0003A5EA7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBBBEC2B24EA41F0003A5EA7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		EBBBEC2E24EA41F0003A5EA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 054D6D3C5A07C16B56AD1C4D /* Pods-ExampleApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lee827.ExampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EBBBEC2F24EA41F0003A5EA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AFAC79E3ECC3D0D279428D3 /* Pods-ExampleApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lee827.ExampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EBCFC10E24E648F300069174 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -346,7 +574,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lee827.SimpleMessageDialog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -375,7 +603,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lee827.SimpleMessageDialog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -388,6 +616,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EBBBEC3024EA41F0003A5EA7 /* Build configuration list for PBXNativeTarget "ExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBBBEC2E24EA41F0003A5EA7 /* Debug */,
+				EBBBEC2F24EA41F0003A5EA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EBCFC10224E648F300069174 /* Build configuration list for PBXProject "SimpleMessageDialog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
