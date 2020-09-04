@@ -9,16 +9,12 @@
 import SnapKit
 
 class SimpleMessageDialogView: UIView {
-  struct Constants {
-    static let TOP_BOTTOM_INSET: CGFloat = 16;
-    static let LEFT_RIGHT_INSET: CGFloat = 24;
-    static let BUTTON_WIDTH: CGFloat = (UIScreen.main.bounds.width-LEFT_RIGHT_INSET*2);
-    static let BUTTON_HEIGHT: CGFloat = 56;
-  }
+  let Appearance = SimpleMessageDialog.appearance.basic;
 
   let blurEffectView: UIView = {
     let this = UIView()
     this.backgroundColor = SimpleMessageDialog.appearance.basic.blurEffectColor;
+    this.isUserInteractionEnabled = SimpleMessageDialog.appearance.basic.blurEffectTapEnable;
     return this
   }()
 
@@ -85,9 +81,32 @@ class SimpleMessageDialogView: UIView {
   func setupView() {
     cancelButton.tag = AlertButtonType.cancel.rawValue;
     confirmButton.tag = AlertButtonType.confirm.rawValue;
+    blurEffectView.tag = AlertButtonType.background.rawValue;
     setupViewConfiguration();
   }
-
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    dialogView.snp.makeConstraints { (make) in
+      if #available(iOS 11.0, *) {
+        let height = Float(self.frame.height-self.safeAreaInsets.bottom-self.safeAreaInsets.top)
+        if (Appearance.dialogViewHeight > height) {
+          make.height.equalTo(height)
+        } else {
+          make.height.greaterThanOrEqualTo(Appearance.dialogViewHeight)
+          make.height.lessThanOrEqualTo(height)
+        }
+      } else {
+        if (Appearance.dialogViewHeight > Float(self.frame.height)) {
+          make.height.equalTo(self)
+        } else {
+          make.height.greaterThanOrEqualTo(Appearance.dialogViewHeight)
+          make.height.lessThanOrEqualTo(self)
+        }
+      }
+    }
+  }
+    
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -115,20 +134,26 @@ extension SimpleMessageDialogView: ViewConfiguration {
     }
 
     dialogView.snp.makeConstraints { (make) in
-      make.left.right.equalTo(self).inset(Constants.LEFT_RIGHT_INSET);
-      make.centerY.equalTo(self);
+      make.center.equalTo(self);
+      make.width.equalTo((Appearance.dialogViewWidth>Float(self.frame.width)) ? self.frame.width : Appearance.dialogViewWidth)
     }
 
     titleLabel.snp.makeConstraints { (make) in
-      make.left.right.equalTo(dialogView).inset(40);
-      make.top.equalTo(dialogView).inset(48);
+      make.left.right.equalTo(dialogView).inset(Appearance.titleLabelLeftRightInset);
+      make.top.equalTo(dialogView).inset(Appearance.titleLabelTopInset);
+      make.height.greaterThanOrEqualTo(Appearance.titleLabelHeight)
     }
+    
+    titleLabel.setContentHuggingPriority(.required, for: .vertical);
 
     messageLabel.snp.makeConstraints { (make) in
-      make.left.right.equalTo(titleLabel);
-      make.top.equalTo(titleLabel.snp.bottom).inset(-24);
-      make.bottom.equalTo(cancelButton.snp.top).inset(-40);
+      make.left.right.equalTo(dialogView).inset(Appearance.messageLabelLeftRightInset);
+      make.top.equalTo(titleLabel.snp.bottom).inset(-Appearance.spaceBetweenTitleAndMessage);
+      make.bottom.equalTo(cancelButton.snp.top).inset(-Appearance.messageLabelBottomInset);
+      make.height.greaterThanOrEqualTo(Appearance.messageLabelHeight)
     }
+    
+    messageLabel.setContentHuggingPriority(.defaultLow, for: .vertical);
 
     separateHLine.snp.makeConstraints { (make) in
       make.left.right.equalTo(dialogView);
@@ -139,20 +164,21 @@ extension SimpleMessageDialogView: ViewConfiguration {
     cancelButton.snp.makeConstraints { (make) in
       make.left.equalTo(dialogView);
       make.bottom.equalTo(dialogView);
-      make.height.equalTo(Constants.BUTTON_HEIGHT);
-      make.width.equalTo(Constants.BUTTON_WIDTH/2);
+      make.height.equalTo(Appearance.buttonHeight);
+      make.width.equalTo(Appearance.dialogViewWidth/2);
     }
 
     confirmButton.snp.makeConstraints { (make) in
       make.right.equalTo(dialogView);
       make.bottom.equalTo(dialogView);
-      make.height.equalTo(cancelButton);
+      make.height.equalTo(Appearance.buttonHeight);
       make.left.equalTo(cancelButton.snp.right);
     }
 
     separateVLine.snp.makeConstraints { (make) in
       make.centerX.equalTo(separateHLine);
-      make.top.bottom.equalTo(cancelButton);
+      make.height.equalTo(Appearance.buttonHeight);
+      make.bottom.equalTo(dialogView);
       make.width.equalTo(1);
     }
   }

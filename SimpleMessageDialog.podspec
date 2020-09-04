@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SimpleMessageDialog"
-  spec.version      = "1.0.0"
+  spec.version      = "1.1.0"
   spec.summary      = "Simple Message Dialog."
   spec.description  = "This is a Simple Message Dialog."
   spec.homepage     = "https://github.com/Lee827/SimpleMessageDialog"

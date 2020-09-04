@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
  
-    SimpleMessageDialog.appearance.basic.blurEffectColor = UIColor.black.withAlphaComponent(0.1);
+    SimpleMessageDialog.appearance.basic.blurEffectColor = UIColor.black.withAlphaComponent(0.5);
     SimpleMessageDialog.appearance.basic.dialogViewColor = .darkGray;
     SimpleMessageDialog.appearance.basic.dialogViewCornerRadius = 8.0;
     
@@ -23,13 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       this.font = UIFont.systemFont(ofSize: 22, weight: .semibold);
       this.textColor = .red;
       this.textAlignment = .center;
-      this.numberOfLines = 5;
+      this.numberOfLines = 0;
+
       return this
     }()
     
     SimpleMessageDialog.appearance.basic.confirmButton = {
       let this = UIButton()
       this.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium);
+      this.backgroundColor = .red
+      
       return this
     }()
     
