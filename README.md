@@ -78,13 +78,13 @@ Default Values:
 	public var blurEffectColor: UIColor = UIColor.black.withAlphaComponent(0.3);
 	public var blurEffectTapEnable: Bool = true;
 
-	public var dialogView: UIView?;
+	public var dialogView: UIView?; // Priority use
 	public var dialogViewColor: UIColor = .gray;
 	public var dialogViewCornerRadius: CGFloat = 0.0;
 	public var dialogViewHeight:Float = 200;
 	public var dialogViewWidth:Float = Float(UIScreen.main.bounds.width-24*2);
 
-	public var titleLabel: UILabel?;
+	public var titleLabel: UILabel?; // Priority use
 	public var titleLabelColor: UIColor = .white;
 	public var titleLabelFont: UIFont = UIFont.systemFont(ofSize: 16, weight: .semibold);
 	public var titleLabelHeight:Float = 20;
@@ -93,7 +93,7 @@ Default Values:
 
 	public var spaceBetweenTitleAndMessage:Float = 40;
 
-	public var messageLabel: UILabel?;
+	public var messageLabel: UILabel?; // Priority use
 	public var messageLabelColor: UIColor = .white;
 	public var messageLabelFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .medium);
 	public var messageLabelHeight:Float = 40;
@@ -103,12 +103,12 @@ Default Values:
 	public var separateHLineColor: UIColor = .white;
 	public var separateVLineColor: UIColor = .white;
 
-	public var cancelButton: UIButton?;
+	public var cancelButton: UIButton?; // Priority use
 	public var cancelButtonColor: UIColor?;
 	public var cancelButtonTitleColor: UIColor = .white;
 	public var cancelButtonFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .medium);
 
-	public var confirmButton: UIButton?;
+	public var confirmButton: UIButton?; // Priority use
 	public var confirmButtonColor: UIColor?;
 	public var confirmButtonTitleColor: UIColor = .white;
 	public var confirmButtonFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .medium);
