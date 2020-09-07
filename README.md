@@ -2,6 +2,8 @@
 
 This is a Simple Message Dialog.
 
+![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p1.png)
+
 # Requirements
 - iOS 10.0+
 
