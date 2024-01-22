@@ -20,7 +20,7 @@ class ViewController: UIViewController {
   let alertButton1: UIButton = {
     let this = UIButton()
     this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
-    this.setTitle("Show Alert1", for: .normal);
+    this.setTitle("Show Alert", for: .normal);
     this.backgroundColor = .black;
     this.tag = 0;
     return this
@@ -29,9 +29,27 @@ class ViewController: UIViewController {
   let alertButton2: UIButton = {
     let this = UIButton()
     this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
-    this.setTitle("Show Alert2", for: .normal);
+    this.setTitle("Show Cancel Alert", for: .normal);
     this.backgroundColor = .black;
     this.tag = 1;
+    return this
+  }()
+  
+  let alertButton3: UIButton = {
+    let this = UIButton()
+    this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
+    this.setTitle("Show Conform Alert", for: .normal);
+    this.backgroundColor = .black;
+    this.tag = 2;
+    return this
+  }()
+  
+  let alertButton4: UIButton = {
+    let this = UIButton()
+    this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
+    this.setTitle("Show No Button Alert", for: .normal);
+    this.backgroundColor = .black;
+    this.tag = 3;
     return this
   }()
   
@@ -45,12 +63,20 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
     view.addSubview(alertButton1);
     view.addSubview(alertButton2);
+    view.addSubview(alertButton3);
+    view.addSubview(alertButton4);
 
-    alertButton1.frame = CGRect(x: self.view.frame.width/2-50,y: self.view.frame.height/4*1,width: 100,height: 100);
+    alertButton1.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*1,width: 200,height: 100);
     alertButton1.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
     
-    alertButton2.frame = CGRect(x: self.view.frame.width/2-50,y: self.view.frame.height/4*2,width: 100,height: 100);
+    alertButton2.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*2,width: 200,height: 100);
     alertButton2.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
+    
+    alertButton3.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*3,width: 200,height: 100);
+    alertButton3.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
+    
+    alertButton4.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*4,width: 200,height: 100);
+    alertButton4.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
   }
 
   @objc func buttonDidTapped(sender: UIButton) {
@@ -78,7 +104,7 @@ class ViewController: UIViewController {
         }
       }
             
-      SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.crossDissolve);
+      SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.coverVertical);
       
     } else if (sender.tag == 1) {
       
@@ -97,6 +123,40 @@ class ViewController: UIViewController {
       }
       
       SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.transform);
+    } else if (sender.tag == 2) {
+      
+      let alert = SimpleMessageDialog().alert(title: nil, message: "Message", cancelButtonTitle: nil, confirmButtonTitle: "OK") { buttonType in
+        switch (buttonType) {
+        case .confirm:
+          print("confirm")
+          break;
+        case .cancel:
+          print("cancel")
+          break;
+        case .background:
+          print("background")
+          break;
+        }
+      }
+      
+      SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.crossDissolve);
+    } else if (sender.tag == 3) {
+      
+      let alert = SimpleMessageDialog().alert(title: "Title", message: "Message", cancelButtonTitle: nil, confirmButtonTitle: nil) { buttonType in
+        switch (buttonType) {
+        case .confirm:
+          print("confirm")
+          break;
+        case .cancel:
+          print("cancel")
+          break;
+        case .background:
+          print("background")
+          break;
+        }
+      }
+      
+      SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.flipHorizontal);
     }
   }
 }

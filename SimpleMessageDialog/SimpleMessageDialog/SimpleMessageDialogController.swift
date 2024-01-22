@@ -100,8 +100,7 @@ public class SimpleMessageDialogController: UIViewController {
     mainView.dialogView.snp.removeConstraints()
     mainView.titleLabel.snp.removeConstraints()
     mainView.messageLabel.snp.removeConstraints()
-    mainView.cancelButton.snp.removeConstraints()
-    mainView.confirmButton.snp.removeConstraints()
+    mainView.horizontalStackView.snp.removeConstraints()
     
     mainView.dialogView.isHidden = false;
     mainView.titleLabel.isHidden = false;
@@ -136,9 +135,6 @@ public class SimpleMessageDialogController: UIViewController {
     if (_cancelTitle == nil) {
       mainView.cancelButton.isHidden = true;
       mainView.separateVLine.isHidden = true;
-      mainView.cancelButton.snp.updateConstraints { (make) in
-        make.width.equalTo(0);
-      }
       
     } else if (_cancelTitle is NSMutableAttributedString) {
       mainView.cancelButton.setAttributedTitle(_cancelTitle as? NSMutableAttributedString, for: .normal);
@@ -149,9 +145,6 @@ public class SimpleMessageDialogController: UIViewController {
     if (_confirmTitle == nil) {
       mainView.confirmButton.isHidden = true;
       mainView.separateVLine.isHidden = true;
-      mainView.cancelButton.snp.updateConstraints { (make) in
-        make.width.equalTo(SimpleMessageDialog.appearance.basic.dialogViewWidth);
-      }
 
     } else if (_confirmTitle is NSMutableAttributedString) {
       mainView.confirmButton.setAttributedTitle(_confirmTitle as? NSMutableAttributedString ?? nil, for: .normal);
@@ -161,12 +154,11 @@ public class SimpleMessageDialogController: UIViewController {
     
     if (_cancelTitle == nil && _confirmTitle == nil) {
       mainView.separateHLine.isHidden = true;
-      mainView.cancelButton.snp.updateConstraints { (make) in
+      
+      mainView.separateVLine.snp.updateConstraints { (make) in
         make.height.equalTo(0);
       }
-      mainView.confirmButton.snp.updateConstraints { (make) in
-        make.height.equalTo(0);
-      }
+      mainView.horizontalStackView.snp.removeConstraints()
     }
   }
   
