@@ -56,11 +56,19 @@ class SimpleMessageDialogView: UIView {
     this.backgroundColor = SimpleMessageDialog.appearance.basic.separateVLineColor;
     return this
   }()
+  
+  let horizontalStackView: UIStackView = {
+    let this = UIStackView();
+    this.axis = .horizontal;
+    this.distribution = .fillEqually;
+    this.spacing = SimpleMessageDialog.appearance.basic.buttonSpacing;
+    return this;
+  }()
 
   let cancelButton: UIButton = SimpleMessageDialog.appearance.basic.cancelButton ?? {
     let this = UIButton()
     this.titleLabel?.font = SimpleMessageDialog.appearance.basic.cancelButtonFont;
-    this.backgroundColor = SimpleMessageDialog.appearance.basic.cancelButtonColor ?? SimpleMessageDialog.appearance.basic.dialogViewColor;
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.cancelButtonColor;
     this.setTitleColor(SimpleMessageDialog.appearance.basic.cancelButtonTitleColor, for: .normal);
     return this
   }()
@@ -68,7 +76,7 @@ class SimpleMessageDialogView: UIView {
   let confirmButton: UIButton = SimpleMessageDialog.appearance.basic.confirmButton ?? {
     let this = UIButton()
     this.titleLabel?.font = SimpleMessageDialog.appearance.basic.confirmButtonFont;
-    this.backgroundColor = SimpleMessageDialog.appearance.basic.confirmButtonColor ?? SimpleMessageDialog.appearance.basic.dialogViewColor;
+    this.backgroundColor = SimpleMessageDialog.appearance.basic.confirmButtonColor;
     this.setTitleColor(SimpleMessageDialog.appearance.basic.confirmButtonTitleColor, for: .normal);
     return this
   }()
@@ -123,8 +131,9 @@ extension SimpleMessageDialogView: ViewConfiguration {
     dialogView.addSubview(titleLabel);
     dialogView.addSubview(messageLabel);
     dialogView.addSubview(separateHLine);
-    dialogView.addSubview(cancelButton);
-    dialogView.addSubview(confirmButton);
+    dialogView.addSubview(horizontalStackView);
+    horizontalStackView.addArrangedSubview(cancelButton);
+    horizontalStackView.addArrangedSubview(confirmButton);
     dialogView.addSubview(separateVLine);
   }
 
@@ -149,7 +158,7 @@ extension SimpleMessageDialogView: ViewConfiguration {
     messageLabel.snp.makeConstraints { (make) in
       make.left.right.equalTo(dialogView).inset(Appearance.messageLabelLeftRightInset);
       make.top.equalTo(titleLabel.snp.bottom).inset(-Appearance.spaceBetweenTitleAndMessage);
-      make.bottom.equalTo(cancelButton.snp.top).inset(-Appearance.messageLabelBottomInset);
+      make.bottom.equalTo(separateHLine.snp.top).inset(-Appearance.messageLabelBottomInset);
       make.height.greaterThanOrEqualTo(Appearance.messageLabelHeight)
     }
     
@@ -157,27 +166,20 @@ extension SimpleMessageDialogView: ViewConfiguration {
 
     separateHLine.snp.makeConstraints { (make) in
       make.left.right.equalTo(dialogView);
-      make.bottom.equalTo(cancelButton.snp.top);
+      make.bottom.equalTo(separateVLine.snp.top);
       make.height.equalTo(1);
     }
 
-    cancelButton.snp.makeConstraints { (make) in
-      make.left.equalTo(dialogView);
-      make.bottom.equalTo(dialogView);
-      make.height.equalTo(Appearance.buttonHeight);
-      make.width.equalTo(Appearance.dialogViewWidth/2);
-    }
-
-    confirmButton.snp.makeConstraints { (make) in
-      make.right.equalTo(dialogView);
-      make.bottom.equalTo(dialogView);
-      make.height.equalTo(Appearance.buttonHeight);
-      make.left.equalTo(cancelButton.snp.right);
+    horizontalStackView.snp.makeConstraints { (make) in
+      make.left.equalTo(dialogView).inset(Appearance.buttonViewLeftInset);
+      make.right.equalTo(dialogView).inset(Appearance.buttonViewRightInset);
+      make.bottom.equalTo(dialogView).inset(Appearance.buttonViewBottomInset);
+      make.top.equalTo(separateHLine.snp.bottom).offset(Appearance.buttonViewTopInset);
     }
 
     separateVLine.snp.makeConstraints { (make) in
       make.centerX.equalTo(separateHLine);
-      make.height.equalTo(Appearance.buttonHeight);
+      make.height.equalTo(Appearance.buttonViewHeight);
       make.bottom.equalTo(dialogView);
       make.width.equalTo(1);
     }

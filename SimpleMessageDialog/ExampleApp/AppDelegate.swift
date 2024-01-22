@@ -31,7 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     SimpleMessageDialog.appearance.basic.confirmButton = {
       let this = UIButton()
       this.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium);
-      this.backgroundColor = .red
+      this.backgroundColor = .clear;
+      this.layer.borderWidth = 1;
+      this.layer.borderColor = UIColor.lightGray.cgColor;
+      this.layer.cornerRadius = 8;
       
       return this
     }()
