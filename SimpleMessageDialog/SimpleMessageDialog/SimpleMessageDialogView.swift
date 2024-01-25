@@ -90,6 +90,27 @@ class SimpleMessageDialogView: UIView {
     cancelButton.tag = AlertButtonType.cancel.rawValue;
     confirmButton.tag = AlertButtonType.confirm.rawValue;
     blurEffectView.tag = AlertButtonType.background.rawValue;
+    
+    titleLabel.text = "";
+    titleLabel.attributedText = nil;
+    messageLabel.text = "";
+    messageLabel.attributedText = nil;
+
+    cancelButton.setTitle("", for: .normal);
+    cancelButton.setAttributedTitle(nil, for: .normal);
+    confirmButton.setTitle("", for: .normal);
+    confirmButton.setAttributedTitle(nil, for: .normal);
+    
+    dialogView.snp.removeConstraints();
+    titleLabel.snp.removeConstraints();
+    messageLabel.snp.removeConstraints();
+    horizontalStackView.snp.removeConstraints();
+    
+    dialogView.isHidden = false;
+    titleLabel.isHidden = false;
+    messageLabel.isHidden = false;
+    cancelButton.isHidden = false;
+    confirmButton.isHidden = false;
     setupViewConfiguration();
   }
   
@@ -186,7 +207,7 @@ extension SimpleMessageDialogView: ViewConfiguration {
   }
 }
 
-protocol ViewConfiguration: class {
+protocol ViewConfiguration: AnyObject {
   func configureViews()
   func buildViewHierarchy()
   func setupConstraints()

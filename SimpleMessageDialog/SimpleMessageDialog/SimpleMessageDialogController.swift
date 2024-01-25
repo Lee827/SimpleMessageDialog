@@ -84,29 +84,8 @@ public class SimpleMessageDialogController: UIViewController {
   
   public override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    mainView.titleLabel.text = "";
-    mainView.titleLabel.attributedText = nil;
-    mainView.messageLabel.text = "";
-    mainView.messageLabel.attributedText = nil;
-    
-    mainView.cancelButton.setTitle("", for: .normal);
-    mainView.cancelButton.setAttributedTitle(nil, for: .normal);
-    mainView.confirmButton.setTitle("", for: .normal);
-    mainView.confirmButton.setAttributedTitle(nil, for: .normal);
-    
     mainView.cancelButton.removeTarget(self, action: nil, for: .touchUpInside);
     mainView.confirmButton.removeTarget(self, action: nil, for: .touchUpInside);
-        
-    mainView.dialogView.snp.removeConstraints()
-    mainView.titleLabel.snp.removeConstraints()
-    mainView.messageLabel.snp.removeConstraints()
-    mainView.horizontalStackView.snp.removeConstraints()
-    
-    mainView.dialogView.isHidden = false;
-    mainView.titleLabel.isHidden = false;
-    mainView.messageLabel.isHidden = false;
-    mainView.cancelButton.isHidden = false;
-    mainView.confirmButton.isHidden = false;
   }
   
   func setInfo() {
@@ -176,12 +155,15 @@ public class SimpleMessageDialogController: UIViewController {
   func dismissDialog(tag: Int) {
     if (self._animated) {
       switch self._AnimationOption {
-      case .coverVertical, .flipHorizontal, .crossDissolve:
+      case .coverVertical, .flipHorizontal:
         self.mainView.blurEffectView.layer.opacity = 0;
-        self.dismiss(animated: true);
-        guard let type = AlertButtonType(rawValue: tag) else { return; }
-        self.buttonAction?(type);
-        break
+        self.dismiss(animated: true, completion: {});
+        break;
+      case .crossDissolve:
+        self.dismiss(animated: true, completion: {
+          self.mainView.blurEffectView.layer.opacity = 0;
+        });
+        break;
       case .transform:
         UIView.animate(
           withDuration: 0.2,
@@ -196,13 +178,13 @@ public class SimpleMessageDialogController: UIViewController {
           guard let type = AlertButtonType(rawValue: tag) else { return; }
           self.buttonAction?(type);
         }
-        break
+        return;
       }
     } else {
       self.dismiss(animated: false);
-      guard let type = AlertButtonType(rawValue: tag) else { return; }
-      self.buttonAction?(type);
     }
+    guard let type = AlertButtonType(rawValue: tag) else { return; }
+    self.buttonAction?(type);
   }
 
   public override func didReceiveMemoryWarning() {

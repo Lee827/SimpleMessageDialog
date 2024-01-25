@@ -38,7 +38,7 @@ class ViewController: UIViewController {
   let alertButton3: UIButton = {
     let this = UIButton()
     this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
-    this.setTitle("Show Conform Alert", for: .normal);
+    this.setTitle("Show Confirm Alert", for: .normal);
     this.backgroundColor = .black;
     this.tag = 2;
     return this
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
 
   @objc func buttonDidTapped(sender: UIButton) {
     if (sender.tag == 0) {
-      let attributedString = NSMutableAttributedString(string: "Cancel");
+      let attributedString = NSMutableAttributedString(string: "Close");
       attributedString.addAttribute(NSAttributedString.Key.kern, value: 2.15, range: NSRange(location: 0, length: attributedString.length - 1));
       
       let attributedString1 = NSMutableAttributedString(string: "Title");
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
       
     } else if (sender.tag == 1) {
       
-      let alert = SimpleMessageDialog().alert(title: nil, message: "Message", cancelButtonTitle: "Cancel", confirmButtonTitle: nil) { buttonType in
+      let alert = SimpleMessageDialog().alert(title: nil, message: "Show Cancel Alert Message", cancelButtonTitle: "Cancel", confirmButtonTitle: nil) { buttonType in
         switch (buttonType) {
         case .confirm:
           print("confirm")
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
       SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.transform);
     } else if (sender.tag == 2) {
       
-      let alert = SimpleMessageDialog().alert(title: nil, message: "Message", cancelButtonTitle: nil, confirmButtonTitle: "OK") { buttonType in
+      let alert = SimpleMessageDialog().alert(title: "Show Confirm Alert Title", message: nil, cancelButtonTitle: nil, confirmButtonTitle: "Confirm") { buttonType in
         switch (buttonType) {
         case .confirm:
           print("confirm")
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
       SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.crossDissolve);
     } else if (sender.tag == 3) {
       
-      let alert = SimpleMessageDialog().alert(title: "Title", message: "Message", cancelButtonTitle: nil, confirmButtonTitle: nil) { buttonType in
+      let alert = SimpleMessageDialog().alert(title: "Title", message: "Show No Button Alert Message", cancelButtonTitle: nil, confirmButtonTitle: nil) { buttonType in
         switch (buttonType) {
         case .confirm:
           print("confirm")
