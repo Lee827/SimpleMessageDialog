@@ -6,8 +6,8 @@ Pod::Spec.new do |spec|
   spec.description  = "This is a Simple Message Dialog."
   spec.homepage     = "https://github.com/Lee827/SimpleMessageDialog"
   spec.license      = "MIT"
-  spec.platform     = :ios, "10.0"
-  spec.ios.deployment_target = "10.0"
+  spec.platform     = :ios, "11.0"
+  spec.ios.deployment_target = "11.0"
   spec.swift_version = "5.0"
   spec.author       = { "Elmo Lee" => "elmolee1992827@gmail.com" }
   spec.source       = { :git => "https://github.com/Lee827/SimpleMessageDialog.git", :tag => spec.version }
