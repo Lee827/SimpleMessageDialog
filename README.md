@@ -7,7 +7,7 @@ This is a Simple Message Dialog.
 ![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p4.png)![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p5.png)
 
 # Requirements
-- iOS 10.0+
+- iOS 11.0+
 
 - Xcode 10.0+
 
@@ -18,7 +18,7 @@ Just add the Source folder to your project.
 
 or use CocoaPods with Podfile:
 
-	pod 'SimpleMessageDialog', '~> 1.2.0'
+	pod 'SimpleMessageDialog', '~> 1.2.1'
 	
 # Usage
 ```js
