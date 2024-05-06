@@ -118,7 +118,7 @@ class SimpleMessageDialogView: UIView {
     super.layoutSubviews()
     dialogView.snp.makeConstraints { (make) in
       if #available(iOS 11.0, *) {
-        let height = Float(self.frame.height-self.safeAreaInsets.bottom-self.safeAreaInsets.top)
+        let height = self.frame.height-self.safeAreaInsets.bottom-self.safeAreaInsets.top;
         if (Appearance.dialogViewHeight > height) {
           make.height.equalTo(height)
         } else {
@@ -126,7 +126,7 @@ class SimpleMessageDialogView: UIView {
           make.height.lessThanOrEqualTo(height)
         }
       } else {
-        if (Appearance.dialogViewHeight > Float(self.frame.height)) {
+        if (Appearance.dialogViewHeight > self.frame.height) {
           make.height.equalTo(self)
         } else {
           make.height.greaterThanOrEqualTo(Appearance.dialogViewHeight)
@@ -165,7 +165,7 @@ extension SimpleMessageDialogView: ViewConfiguration {
 
     dialogView.snp.makeConstraints { (make) in
       make.center.equalTo(self);
-      make.width.equalTo((Appearance.dialogViewWidth>Float(self.frame.width)) ? self.frame.width : Appearance.dialogViewWidth)
+      make.width.equalTo((Appearance.dialogViewWidth > self.frame.width) ? self.frame.width : Appearance.dialogViewWidth)
     }
 
     titleLabel.snp.makeConstraints { (make) in
