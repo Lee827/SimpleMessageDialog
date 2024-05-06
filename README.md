@@ -7,7 +7,7 @@ This is a Simple Message Dialog.
 ![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p4.png)![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p5.png)
 
 # Requirements
-- iOS 11.0+
+- iOS 12.0+
 
 - Xcode 10.0+
 
@@ -18,7 +18,7 @@ Just add the Source folder to your project.
 
 or use CocoaPods with Podfile:
 
-	pod 'SimpleMessageDialog', '~> 1.2.1'
+	pod 'SimpleMessageDialog', '~> 1.2.2'
 	
 # Usage
 ```js
@@ -86,24 +86,24 @@ public var blurEffectTapEnable: Bool = true;
 public var dialogView: UIView?; // Priority use
 public var dialogViewColor: UIColor = .gray;
 public var dialogViewCornerRadius: CGFloat = 0.0;
-public var dialogViewHeight: Float = 200;
-public var dialogViewWidth: Float = Float(UIScreen.main.bounds.width-24*2);
+public var dialogViewHeight: CGFloat = 200;
+public var dialogViewWidth: CGFloat = UIScreen.main.bounds.width-24*2;
 
 public var titleLabel: UILabel?; // Priority use
 public var titleLabelColor: UIColor = .white;
 public var titleLabelFont: UIFont = UIFont.systemFont(ofSize: 18, weight: .bold);
-public var titleLabelHeight: Float = 26;
-public var titleLabelLeftRightInset: Float = 20;
-public var titleLabelTopInset: Float = 32;
+public var titleLabelHeight: CGFloat = 26;
+public var titleLabelLeftRightInset: CGFloat = 20;
+public var titleLabelTopInset: CGFloat = 32;
 
-public var spaceBetweenTitleAndMessage:Float = 15;
+public var spaceBetweenTitleAndMessage: CGFloat = 15;
 
 public var messageLabel: UILabel?; // Priority use
 public var messageLabelColor: UIColor = .white;
 public var messageLabelFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .medium);
-public var messageLabelHeight: Float = 40;
-public var messageLabelLeftRightInset: Float = 20;
-public var messageLabelBottomInset: Float = 55;
+public var messageLabelHeight: CGFloat = 40;
+public var messageLabelLeftRightInset: CGFloat = 20;
+public var messageLabelBottomInset: CGFloat = 55;
 
 public var separateHLineColor: UIColor = .clear;
 public var separateVLineColor: UIColor = .clear;
@@ -118,12 +118,12 @@ public var confirmButtonColor: UIColor = .lightGray;
 public var confirmButtonTitleColor: UIColor = .white;
 public var confirmButtonFont: UIFont = UIFont.systemFont(ofSize: 13, weight: .medium);
 
-public var buttonViewHeight: Float = 72;
+public var buttonViewHeight: CGFloat = 72;
 public var buttonSpacing: CGFloat = 11.0;
-public var buttonViewLeftInset: Float = 32.0;
-public var buttonViewRightInset: Float = 32.0;
-public var buttonViewTopInset: Float = 0.0;
-public var buttonViewBottomInset: Float = 24.0;
+public var buttonViewLeftInset: CGFloat = 32.0;
+public var buttonViewRightInset: CGFloat = 32.0;
+public var buttonViewTopInset: CGFloat = 0.0;
+public var buttonViewBottomInset: CGFloat = 24.0;
 ```
 # License
 SimpleMessageDialog is released under the MIT license. See LICENSE for details.
