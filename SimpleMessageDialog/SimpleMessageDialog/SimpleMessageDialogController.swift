@@ -144,24 +144,33 @@ public class SimpleMessageDialogController: UIViewController {
   // MARK: Button Handle
 
   @objc func buttonDidTapped(sender: UIButton) {
-    dismissDialog(tag: sender.tag);
+    dismissDialog(completion: {
+      guard let type = AlertButtonType(rawValue: sender.tag) else { return; }
+      self.buttonAction?(type);
+    });
   }
   
   @objc func handleTap(_ sender: UITapGestureRecognizer) {
     guard let getTag = sender.view?.tag else { return }
-    dismissDialog(tag: getTag);
+    dismissDialog(completion: {
+      guard let type = AlertButtonType(rawValue: getTag) else { return; }
+      self.buttonAction?(type);
+    });
   }
   
-  func dismissDialog(tag: Int) {
+  func dismissDialog(completion: @escaping () -> Void) {
     if (self._animated) {
       switch self._AnimationOption {
       case .coverVertical, .flipHorizontal:
         self.mainView.blurEffectView.layer.opacity = 0;
-        self.dismiss(animated: true, completion: {});
+        self.dismiss(animated: true, completion: {
+          completion();
+        });
         break;
       case .crossDissolve:
         self.dismiss(animated: true, completion: {
           self.mainView.blurEffectView.layer.opacity = 0;
+          completion();
         });
         break;
       case .transform:
@@ -173,18 +182,18 @@ public class SimpleMessageDialogController: UIViewController {
             self.mainView.blurEffectView.layer.opacity = 0;
             self.mainView.dialogView.layer.opacity = 0;
             self.mainView.dialogView.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
-        }) { (_) in
-          self.dismiss(animated: false);
-          guard let type = AlertButtonType(rawValue: tag) else { return; }
-          self.buttonAction?(type);
-        }
+          }) { (_) in
+            self.dismiss(animated: false, completion: {
+              completion();
+            });
+          }
         return;
       }
     } else {
-      self.dismiss(animated: false);
+      self.dismiss(animated: false, completion: {
+        completion();
+      });
     }
-    guard let type = AlertButtonType(rawValue: tag) else { return; }
-    self.buttonAction?(type);
   }
 
   public override func didReceiveMemoryWarning() {
