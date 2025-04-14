@@ -13,10 +13,11 @@ public class SimpleMessageDialog {
 
   public init() {}
 
-  public func alert(title: StringOrAttributedString?, message: StringOrAttributedString?, cancelButtonTitle: StringOrAttributedString?, confirmButtonTitle: StringOrAttributedString?, completion: @escaping (_ buttonType: AlertButtonType) -> Void) -> SimpleMessageDialogController {
+  public func alert(image: UIImage? = nil, title: StringOrAttributedString?, message: StringOrAttributedString?, cancelButtonTitle: StringOrAttributedString?, confirmButtonTitle: StringOrAttributedString?, completion: @escaping (_ buttonType: AlertButtonType) -> Void) -> SimpleMessageDialogController {
     let alert = SimpleMessageDialogController();
     
     alert.modalPresentationStyle = .overFullScreen;
+    alert._image = image;
     alert._title = title;
     alert._message = message;
     alert._cancelTitle = cancelButtonTitle;
@@ -79,6 +80,8 @@ extension SimpleMessageDialog {
       public var dialogViewCornerRadius: CGFloat = 0.0;
       public var dialogViewHeight: CGFloat = 200;
       public var dialogViewWidth: CGFloat = UIScreen.main.bounds.width-24*2;
+      
+      public var imageViewTopInsetWhenHidden: CGFloat = 16;
 
       public var titleLabel: UILabel?;
       public var titleLabelColor: UIColor = .white;

@@ -5,6 +5,7 @@ This is a Simple Message Dialog.
 ![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p1.png)
 ![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p2.png)![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p3.png)
 ![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p4.png)![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p5.png)
+![image](https://github.com/Lee827/SimpleMessageDialog/blob/master/Sample%20Picture/p6.png)
 
 # Requirements
 - iOS 12.0+
@@ -18,7 +19,7 @@ Just add the Source folder to your project.
 
 or use CocoaPods with Podfile:
 
-	pod 'SimpleMessageDialog', '~> 1.2.2'
+	pod 'SimpleMessageDialog', '~> 1.3.0'
 	
 # Usage
 ```js
@@ -88,6 +89,8 @@ public var dialogViewColor: UIColor = .gray;
 public var dialogViewCornerRadius: CGFloat = 0.0;
 public var dialogViewHeight: CGFloat = 200;
 public var dialogViewWidth: CGFloat = UIScreen.main.bounds.width-24*2;
+
+public var imageViewTopInsetWhenHidden: CGFloat = 16;
 
 public var titleLabel: UILabel?; // Priority use
 public var titleLabelColor: UIColor = .white;
