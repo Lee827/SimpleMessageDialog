@@ -53,6 +53,15 @@ class ViewController: UIViewController {
     return this
   }()
   
+  let alertButton5: UIButton = {
+    let this = UIButton()
+    this.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .medium);
+    this.setTitle("Show Image Alert", for: .normal);
+    this.backgroundColor = .black;
+    this.tag = 4;
+    return this
+  }()
+  
   override func loadView() {
     super.loadView();
     self.view = self.mainView;
@@ -65,18 +74,22 @@ class ViewController: UIViewController {
     view.addSubview(alertButton2);
     view.addSubview(alertButton3);
     view.addSubview(alertButton4);
+    view.addSubview(alertButton5);
 
-    alertButton1.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*1,width: 200,height: 100);
+    alertButton1.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/7*1,width: 200,height: 100);
     alertButton1.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
     
-    alertButton2.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*2,width: 200,height: 100);
+    alertButton2.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/7*2,width: 200,height: 100);
     alertButton2.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
     
-    alertButton3.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*3,width: 200,height: 100);
+    alertButton3.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/7*3,width: 200,height: 100);
     alertButton3.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
     
-    alertButton4.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/6*4,width: 200,height: 100);
+    alertButton4.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/7*4,width: 200,height: 100);
     alertButton4.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
+    
+    alertButton5.frame = CGRect(x: self.view.frame.width/2-100,y: self.view.frame.height/7*5,width: 200,height: 100);
+    alertButton5.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside);
   }
 
   @objc func buttonDidTapped(sender: UIButton) {
@@ -157,6 +170,22 @@ class ViewController: UIViewController {
       }
       
       SimpleMessageDialog().show(topController: self, alert: alert, animated: true, presentationStyle: AnimationOptions.flipHorizontal);
+    } else if (sender.tag == 4) {
+      let alert = SimpleMessageDialog().alert(image: UIImage(named: "placeholder.png"), title: "Image Title", message: "Show Image", cancelButtonTitle: "Close", confirmButtonTitle: "OK") { buttonType in
+        switch (buttonType) {
+        case .confirm:
+          print("confirm")
+          break;
+        case .cancel:
+          print("cancel")
+          break;
+        case .background:
+          print("background")
+          break;
+        }
+      }
+            
+      SimpleMessageDialog().show(topController: self, alert: alert, animated: true);
     }
   }
 }

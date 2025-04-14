@@ -26,6 +26,14 @@ class SimpleMessageDialogView: UIView {
     this.clipsToBounds = true;
     return this
   }()
+  
+  let imageView: UIImageView = {
+    let this = UIImageView()
+    this.contentMode = .scaleAspectFill;
+    this.layer.masksToBounds = true;
+    this.backgroundColor = .clear;
+    return this
+  }()
     
   let titleLabel: UILabel = SimpleMessageDialog.appearance.basic.titleLabel ?? {
     let this = UILabel()
@@ -91,6 +99,7 @@ class SimpleMessageDialogView: UIView {
     confirmButton.tag = AlertButtonType.confirm.rawValue;
     blurEffectView.tag = AlertButtonType.background.rawValue;
     
+    imageView.image = nil;
     titleLabel.text = "";
     titleLabel.attributedText = nil;
     messageLabel.text = "";
@@ -102,11 +111,13 @@ class SimpleMessageDialogView: UIView {
     confirmButton.setAttributedTitle(nil, for: .normal);
     
     dialogView.snp.removeConstraints();
+    imageView.snp.removeConstraints();
     titleLabel.snp.removeConstraints();
     messageLabel.snp.removeConstraints();
     horizontalStackView.snp.removeConstraints();
     
     dialogView.isHidden = false;
+    imageView.isHidden = false;
     titleLabel.isHidden = false;
     messageLabel.isHidden = false;
     cancelButton.isHidden = false;
@@ -149,6 +160,7 @@ extension SimpleMessageDialogView: ViewConfiguration {
   func buildViewHierarchy() {
     addSubview(blurEffectView);
     addSubview(dialogView);
+    dialogView.addSubview(imageView);
     dialogView.addSubview(titleLabel);
     dialogView.addSubview(messageLabel);
     dialogView.addSubview(separateHLine);
@@ -162,15 +174,22 @@ extension SimpleMessageDialogView: ViewConfiguration {
     blurEffectView.snp.makeConstraints { (make) in
       make.edges.equalTo(self);
     }
-
+    
+    let dialogViewWidth = (Appearance.dialogViewWidth > self.frame.width) ? self.frame.width : Appearance.dialogViewWidth
     dialogView.snp.makeConstraints { (make) in
       make.center.equalTo(self);
-      make.width.equalTo((Appearance.dialogViewWidth > self.frame.width) ? self.frame.width : Appearance.dialogViewWidth)
+      make.width.equalTo(dialogViewWidth)
+    }
+    
+    imageView.snp.makeConstraints { (make) in
+      make.left.right.equalTo(dialogView);
+      make.top.equalTo(dialogView).inset(0);
+      make.height.equalTo(dialogViewWidth/3*2);
     }
 
     titleLabel.snp.makeConstraints { (make) in
       make.left.right.equalTo(dialogView).inset(Appearance.titleLabelLeftRightInset);
-      make.top.equalTo(dialogView).inset(Appearance.titleLabelTopInset);
+      make.top.equalTo(imageView.snp.bottom).offset(Appearance.titleLabelTopInset);
       make.height.greaterThanOrEqualTo(Appearance.titleLabelHeight)
     }
     

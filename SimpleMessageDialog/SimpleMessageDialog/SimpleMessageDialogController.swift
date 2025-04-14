@@ -21,6 +21,7 @@ public class SimpleMessageDialogController: UIViewController {
     return v;
   }();
 
+  var _image:UIImage? = nil;
   var _title:StringOrAttributedString? = nil;
   var _message:StringOrAttributedString? = nil;
   var _cancelTitle:StringOrAttributedString? = nil;
@@ -89,9 +90,19 @@ public class SimpleMessageDialogController: UIViewController {
   }
   
   func setInfo() {
+    if (_image == nil) {
+      mainView.imageView.snp.updateConstraints { (make) in
+        make.top.equalTo(mainView.dialogView).inset(SimpleMessageDialog.appearance.basic.imageViewTopInsetWhenHidden);
+        make.height.equalTo(0);
+      }
+      mainView.imageView.isHidden = true;
+    } else {
+      mainView.imageView.image = _image;
+    }
+    
     if (_title == nil) {
       mainView.titleLabel.snp.updateConstraints { (make) in
-        make.top.equalTo(mainView.dialogView).inset(0);
+        make.top.equalTo(mainView.imageView.snp.bottom).offset(0);
       }
       mainView.titleLabel.isHidden = true;
     } else if (_title is NSAttributedString) {
